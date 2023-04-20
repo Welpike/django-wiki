@@ -16,7 +16,14 @@
         </div>
     </div>
 
-    <div class="m-3">
-        {{ article.content }}
+    <div id="document" class="m-3">
+
     </div>
+
+    <div id="jsDataArticleContentContainer" data-content="{{ article.content }}"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+    <script>
+        let converter=new showdown.Converter(),text=document.querySelector("#jsDataArticleContentContainer").getAttribute("data-content"),html=converter.makeHtml(text),target=document.querySelector("#document");target.innerHTML=html;
+    </script>
 {% endblock %}
