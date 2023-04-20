@@ -10,4 +10,5 @@ urlpatterns = [
     path('new', views.create_article, name="create_article"),
     path('edit/<int:article_pk>', views.edit_article, name="edit_article"),
     path('delete/<int:article_pk>', views.delete_article, name="delete_article"),
+    path('search', views.search, name="search"),
 ]

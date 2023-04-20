@@ -1,20 +1,18 @@
 {% extends "core/base/main.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Search : {{ query }}{% endblock %}
 
 {% block content %}
 <main class="container">
     <div class="d-flex align-items-center p-3 my-3 text-white rounded shadow-sm" style="background-color: #6f42c1;">
         <img class="me-3" src="" alt="" width="48" height="38">
         <div class="lh-1">
-            <h1 class="h6 mb-0 text-white lh-1">django-wiki</h1>
-            <small>A prefabricated wiki made with django.</small>
+            <h1 class="h6 mb-0 text-white lh-1">Search : {{ query }}</h1>
+            <small>Results of the search</small>
         </div>
     </div>
 
     <div class="my-3 p-3 bg-body rounded shadow-sm">
-        <h6 class="border-bottom pb-2 mb-0">Articles</h6>
-
         {% for article in articles %}
         <a href="{% url 'wiki:view_article' article.slug %}" class="d-flex text-body-secondary pt-3 text-decoration-none">
             <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>

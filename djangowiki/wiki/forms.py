@@ -3,7 +3,7 @@ from django import forms
 from .models import Article
 
 
-INPUT_CLASSES = ""
+INPUT_CLASSES = "form-control"
 
 
 class CreateArticleForm(forms.ModelForm):

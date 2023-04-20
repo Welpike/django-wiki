@@ -1,5 +1,6 @@
 from random import randint
 
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Article
@@ -52,3 +53,10 @@ def delete_article(request, article_pk):
     if request.user.is_authenticated and request.user.is_staff:
         article.delete()
     return redirect("core:index")
+
+
+def search(request):
+    query = request.GET.get("q")
+    articles = Article.objects.filter(Q(title__icontains=query) | Q(content__icontains=query) | \
+                                    Q(created_on__icontains=query) | Q(updated_on__icontains=query))
+    return render(request, "wiki/search.html", {'query': query, 'articles': articles})
