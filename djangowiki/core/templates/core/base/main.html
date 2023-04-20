@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock %} | django-wiki</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'core:index' %}">Home</a></li>
+            <li><a href="{% url 'wiki:create_article' %}">Create article</a></li>
+            <li><a href="{% url 'wiki:random_article' %}">Random article</a></li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
